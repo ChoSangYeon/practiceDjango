@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.contents }}</p>
+    <img src="{{ post.img }}" alt="">
+
+    <!-- 이거 다 Django에서 사용하지 않는 패턴입니다. -->
+    <!-- <a href="127.0.0.1/blog/">홈으로 가기</a> -->
+    <!-- <a href="http://127.0.0.1:8000/blog">홈으로 가기</a> -->
+    <!-- <a href="../">홈으로 가기</a> -->
+    <!-- <a href="../../">홈으로 가기</a> -->
+    <!-- <a href="http://127.0.0.1:8000/blog/1/../../">홈으로 가기</a> -->
+    <!-- ../ directory traversal attack 입니다. 뚫리는 공격 -->
+
+    <a href="{% url 'blog' %}">홈으로 가기</a>
+    <script>
+        let imgSrc = "{{ post.img }}"
+        // let {{post.title}} = 100
+    </script>
+</body>
+</html>
