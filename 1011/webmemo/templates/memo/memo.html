@@ -1,0 +1,14 @@
+<h1>메모장</h1>
+<ul>
+    {% for m_page_detail in db %}
+    <li>
+        <form method="post" action="{% url 'memodel' m_page_detail.id %}">
+            {% csrf_token %}
+            {{ m_page_detail.updated_at }}
+            <a href="{% url 'm_page' m_page_detail.id %}">{{ m_page_detail.title }}</a>
+            <button type="submit">삭제하기</button>
+            <br><br>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
