@@ -46,4 +46,4 @@ def post(request, pk):
     context = {
         'db': db[pk-1]
     }
-    return render(request, 'blog/post.html')
+    return render(request, 'blog/post.html', context)
