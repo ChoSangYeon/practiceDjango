@@ -1,0 +1,15 @@
+<h1>blog</h1>
+<hr>
+<h1>게시판</h1>
+<form action="" method="get">
+    <input name="q" type="search">
+    <button type="submit">검색</button>
+</form>
+<ul>
+    {% for notice_detail in db %}
+    <li>
+        <a href="{% url 'notice' notice_detail.id %}">{{ notice_detail.title }}</a>
+        <p>{{notice_detail.contents}}</p>
+    </li>
+    {% endfor %}
+</ul>
